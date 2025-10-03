@@ -12,6 +12,8 @@ class AgentState(TypedDict):
 llm = ChatOpenAI(model="gpt-4o")    
 
 def process(state: AgentState) -> AgentState:
+    """Process the input message and generate a response."""
+
     response = llm.invoke(state["message"])
     print("Agent Response:", response.content)
     return state
